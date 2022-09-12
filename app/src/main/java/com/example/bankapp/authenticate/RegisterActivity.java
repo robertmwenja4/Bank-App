@@ -9,11 +9,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bankapp.R;
+import com.example.bankapp.viewModel.AuthViewModel;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText mname, memail, mpassword, mconPassword;
     TextView mRegister, mAlready;
+    AuthViewModel authViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void Registration() {
         String name = mname.getText().toString().trim();
-        
+        String email = memail.getText().toString().trim();
+        String password = mpassword.getText().toString().trim();
+
+        authViewModel.Registration(name,email,password);
     }
 }
