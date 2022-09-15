@@ -37,4 +37,22 @@ public class AuthViewModel extends ViewModel {
         });
 
     }
+
+    public void Login(String email, String password){
+        Auth auth = AuthRetroInstance.getRetrofitInstance().create(Auth.class);
+        Call<UserRegister> call = auth.login(email, password);
+        call.enqueue(new Callback<UserRegister>() {
+            @Override
+            public void onResponse(Call<UserRegister> call, Response<UserRegister> response) {
+                if (response.isSuccessful()){
+                    Log.i(TAG, "Login Successfull");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserRegister> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
 }

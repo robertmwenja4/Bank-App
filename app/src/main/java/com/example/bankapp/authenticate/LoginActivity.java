@@ -5,14 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bankapp.MainActivity;
 import com.example.bankapp.R;
+import com.example.bankapp.viewModel.AuthViewModel;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView mlogin,notRegistered;
+    EditText ed1, ed2;
+    AuthViewModel authViewModel;
 
 
     @Override
@@ -24,6 +28,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mlogin.setOnClickListener(this);
         notRegistered = findViewById(R.id.notRegistered);
         notRegistered.setOnClickListener(this);
+        ed1 = findViewById(R.id.email);
+        ed2 = findViewById(R.id.password);
     }
 
     @Override
@@ -38,5 +44,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 finish();
                 break;
         }
+    }
+
+    public void Login(){
+        String email = ed1.getText().toString().trim();
+        String password = ed2.getText().toString().trim();
+
+        authViewModel.Login(email,password);
     }
 }
