@@ -36,8 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.login:
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
+                Login();
                 break;
             case R.id.notRegistered:
                 startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
@@ -51,5 +50,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password = ed2.getText().toString().trim();
 
         authViewModel.Login(email,password);
+
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        finish();
     }
 }

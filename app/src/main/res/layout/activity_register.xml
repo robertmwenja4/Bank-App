@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/layout1"
     tools:context=".authenticate.RegisterActivity">
 
     <TextView
@@ -14,12 +15,11 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="100dp"
         android:id="@+id/tv1"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:background="#cfd"
         android:layout_below="@+id/tv1"
         android:orientation="vertical"
         android:layout_marginTop="20dp">
@@ -29,7 +29,7 @@
             android:layout_height="50dp"
             android:background="@drawable/border"
             android:layout_marginTop="10dp"
-            android:hint="Enter Name"
+            android:hint="@string/enter_name"
             android:textColor="@color/black"
             android:textStyle="bold|italic"
             android:id="@+id/name"
